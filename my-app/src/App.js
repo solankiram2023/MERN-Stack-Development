@@ -1,6 +1,8 @@
 import React from 'react';
 
-import GoalList from './components/GoalList.js';
+import GoalList from './components/GoalList/GoalList.js';
+import NewGoal from './components/NewGoal/NewGoal.js';
+
 import './App.css';
 
 const App = () => {
@@ -11,12 +13,21 @@ const App = () => {
 
   ];
 
+  const addNewGoalHandler = (newGoal) => {
+    courseGoals.push(newGoal);
+    console.log(courseGoals);
+  }
+
+
+
   return (
     <div className = "course-goals">
       <h2> Course Goal</h2>
+      <NewGoal onAddGoal={addNewGoalHandler} />
+
       <GoalList goals={courseGoals}/>
     </div>
   );
 };
 
-export default App;
+export default App;//Component
